@@ -1,0 +1,28 @@
+? What are RNN's, how are they applied/used today?
+
+
+Used to model data over time (think stock prices, or anything that can
+be modeled over time).
+
+* In forward pass, previous output from hidden-state is fed into the 
+next hidden-state, which is then put through one more final feed-forward
+layer before the outputs are determined.
+
+
+* Backprop. thru time
+--> Each hidden layer's output is affecting own loss for example,
+and all the future examples!
+
+* Key problem w/ RNN's:
+--> Gradients explode or vanish over time.
+: In computing the partial derivative of h(t) with respect
+to h(t+n), we find that the iterative application of the chain rule
+results in exponential growth or decay to the extent of matrix^nth power.
+
+* LSTM's
+--> Allow RNN's to control how much of previous inputs are passed
+through. Also with archetecture, you can choose to 'ignore' some
+context that is not relevant. At the same time, it can output
+something without taking into account context while still
+'remembering the past information.
+? How does this destroy diminishing gradient problem?
